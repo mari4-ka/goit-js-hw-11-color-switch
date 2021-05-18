@@ -27,6 +27,7 @@ function onStartButtonClick(e) {
         console.log('color change')
     }, DELAY);
   e.target.disabled = 'true';
+  startButton.removeEventListener('click', onStartButtonClick);
   stopButton.addEventListener('click', onStopButtonClick);
 }
 
@@ -35,6 +36,6 @@ function onStopButtonClick(e) {
 
   clearInterval(timerId);
   startButton.removeAttribute('disabled');
-  // startButton.addEventListener('click', onStartButtonClick);
+  startButton.addEventListener('click', onStartButtonClick);
   stopButton.removeEventListener('click', onStopButtonClick);
 }
