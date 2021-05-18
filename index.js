@@ -26,14 +26,15 @@ function onStartButtonClick(e) {
         document.body.style.backgroundColor = colors[randomIntegerFromInterval(0, colors.length - 1)];
         console.log('color change')
     }, DELAY);
-  startButton.removeEventListener('click', onStartButtonClick);
+  e.target.disabled = 'true';
   stopButton.addEventListener('click', onStopButtonClick);
 }
 
-function onStopButtonClick() {
+function onStopButtonClick(e) {
   console.log('stop click');
 
   clearInterval(timerId);
-
+  startButton.removeAttribute('disabled');
+  // startButton.addEventListener('click', onStartButtonClick);
   stopButton.removeEventListener('click', onStopButtonClick);
 }
